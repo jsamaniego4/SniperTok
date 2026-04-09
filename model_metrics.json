@@ -1,0 +1,72 @@
+{
+  "trained_at": "2026-04-09T15:25:01.251637",
+  "accuracy": 1.0,
+  "macro_f1": 1.0,
+  "rows_used": 12000,
+  "classes": [
+    "beauty",
+    "car",
+    "fitness",
+    "home",
+    "kitchen",
+    "pets",
+    "tech"
+  ],
+  "classification_report": {
+    "beauty": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 342.0
+    },
+    "car": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 351.0
+    },
+    "fitness": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 346.0
+    },
+    "home": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 337.0
+    },
+    "kitchen": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 347.0
+    },
+    "pets": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 345.0
+    },
+    "tech": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 332.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 2400.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 2400.0
+    }
+  }
+}
