@@ -1,28 +1,19 @@
-# SniperTok — AI Trend Intelligence
+﻿# SniperTok — AI Trend Intelligence
 
 A production-style portfolio project for discovering high-potential ecommerce products from short-form video signals.
 
 SniperTok ingests post-level engagement data, engineers trend features, stores structured history in SQLite, ranks emerging products, and trains a machine learning classifier to identify product categories from content metadata.
 
-## Project Details:
+## What’s improved
 
-This is not just a notebook. It is a complete repo with:
+This repo now includes:
 
-- **Python architecture**
-- **CLI pipeline** for repeatable runs
-- **SQLite analytics layer** with indexes for fast historical retrieval
-- **Feature engineering** for momentum, watch-through quality, virality, and creator quality
-- **ML classification** for product category prediction
-- **FastAPI service** for predictions and trend retrieval
-- **Streamlit dashboard** for demoing the project visually
-- **Tests** for core pipeline paths
-- **Synthetic data generator** so the repo works out of the box
-
-## From Resume:
-
-- Built **SniperTok**, an AI trend intelligence platform using **Python, Pandas, SQL, and machine learning** to process **10,000+ engagement signals per run** for product trend discovery.
-- Designed indexed backend storage and feature pipelines that enabled **faster historical retrieval and time-series analysis** for viral product monitoring.
-- Implemented an **ML classification pipeline** for product category detection using text and behavioral signals, achieving **85%+ accuracy** on the generated benchmark dataset.
+- A clean package layout under `src/sniper_tok`
+- A reusable CLI pipeline for ingestion, feature engineering, trend ranking, and model training
+- A Streamlit dashboard that combines trend exploration, historical product tracking, and live category prediction
+- A local FastAPI service for health, trend retrieval, and category inference
+- A synthetic data generator to bootstrap the pipeline immediately
+- A development-ready `requirements.txt` for reproducible installs
 
 ## Architecture
 
@@ -41,7 +32,6 @@ Raw CSV / future scraper
         │             - engagement quality
         │             - creator quality
         │             - velocity
-        │
         └──────────► ML Pipeline
                       - text cleanup
                       - numeric features
@@ -52,37 +42,51 @@ Raw CSV / future scraper
 ## Repository structure
 
 ```text
-SniperTok/
-├── src/sniper_tok/
-│   ├── api.py
-│   ├── cli.py
-│   ├── config.py
-│   ├── db.py
-│   ├── dashboard.py
-│   ├── schemas.py
-│   ├── services/
-│   │   ├── features.py
-│   │   ├── ingest.py
-│   │   ├── ml.py
-│   │   └── trends.py
-│   └── utils/
-│       └── text.py
-├── tools/
-│   └── generate_sample_data.py
-├── tests/
-├── artifacts/
-├── data/sample/
-├── requirements.txt
-└── README.md
+src/sniper_tok/
+├── api.py
+├── cli.py
+├── config.py
+├── dashboard.py
+├── db.py
+├── schemas.py
+├── services/
+│   ├── features.py
+│   ├── ingest.py
+│   ├── ml.py
+│   └── trends.py
+└── utils/
+    └── text.py
+
+tools/
+└── generate_sample_data.py
+
+tests/
+└── test_pipeline.py
+
+artifacts/
+└── (generated model, metrics, and SQLite warehouse)
+
+requirements.txt
+README.md
 ```
 
 ## Quick start
 
 ### 1. Create an environment
 
+On macOS/Linux:
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+On Windows PowerShell:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
@@ -127,6 +131,16 @@ PYTHONPATH=src uvicorn sniper_tok.api:app --reload
 ```bash
 PYTHONPATH=src streamlit run src/sniper_tok/dashboard.py
 ```
+
+## Dashboard features
+
+The Streamlit dashboard now includes:
+
+- Status cards for local artifacts
+- Top trend snapshot and category distribution
+- Product-level trend history charts
+- Live prediction form for inference samples
+- Model metrics preview with full JSON expansion
 
 ## Example API calls
 
@@ -222,11 +236,4 @@ Model:
 - `StandardScaler` for numeric features
 - `LogisticRegression` classifier
 
-Artifacts are saved to `artifacts/category_model.joblib`.
-
-
-That makes the repo feel like a real analytics product, not classwork.
-
-## License
-
-MIT
+Artifacts are saved to `artifacts/category_model.joblib`

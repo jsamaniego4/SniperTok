@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Tuple
 
 import joblib
@@ -81,7 +81,7 @@ def train_category_model(test_size: float = 0.2, random_state: int = 42) -> dict
     joblib.dump(pipeline, settings.model_path)
 
     metrics = {
-        "trained_at": datetime.utcnow().isoformat(),
+        "trained_at": datetime.now(timezone.utc).isoformat(),
         "accuracy": accuracy,
         "macro_f1": macro_f1,
         "rows_used": int(len(df)),
