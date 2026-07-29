@@ -1,12 +1,20 @@
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
 from fastapi import FastAPI, HTTPException
 
-from .config import get_settings
-from .db import initialize_database
-from .schemas import HealthResponse, PredictionRequest, PredictionResponse
-from .services.ml import predict_category
-from .services.trends import get_top_trends
+# Ensure `src` is on sys.path when running the API directly.
+root = Path(__file__).resolve().parents[1]
+if str(root) not in sys.path:
+    sys.path.insert(0, str(root))
+
+from sniper_tok.config import get_settings
+from sniper_tok.db import initialize_database
+from sniper_tok.schemas import HealthResponse, PredictionRequest, PredictionResponse
+from sniper_tok.services.ml import predict_category
+from sniper_tok.services.trends import get_top_trends
 
 app = FastAPI(
     title="SniperTok API",

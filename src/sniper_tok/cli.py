@@ -1,13 +1,20 @@
 from __future__ import annotations
 
+import sys
+from pathlib import Path
 import argparse
 import json
 
-from .db import initialize_database
-from .services.features import build_daily_product_features
-from .services.ingest import ingest_csv
-from .services.ml import train_category_model
-from .services.trends import get_top_trends
+# Ensure `src` is on sys.path when running the CLI directly.
+root = Path(__file__).resolve().parents[1]
+if str(root) not in sys.path:
+    sys.path.insert(0, str(root))
+
+from sniper_tok.db import initialize_database
+from sniper_tok.services.features import build_daily_product_features
+from sniper_tok.services.ingest import ingest_csv
+from sniper_tok.services.ml import train_category_model
+from sniper_tok.services.trends import get_top_trends
 
 
 def handle_ingest(args: argparse.Namespace) -> None:

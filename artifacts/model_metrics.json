@@ -1,5 +1,5 @@
 {
-  "trained_at": "2026-04-09T15:25:01.251637",
+  "trained_at": "2026-07-29T00:44:19.818004",
   "accuracy": 1.0,
   "macro_f1": 1.0,
   "rows_used": 12000,
@@ -17,56 +17,56 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 342.0
+      "support": 428.0
     },
     "car": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 351.0
+      "support": 431.0
     },
     "fitness": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 346.0
+      "support": 436.0
     },
     "home": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 337.0
+      "support": 424.0
     },
     "kitchen": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 347.0
+      "support": 436.0
     },
     "pets": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 345.0
+      "support": 429.0
     },
     "tech": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 332.0
+      "support": 416.0
     },
     "accuracy": 1.0,
     "macro avg": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 2400.0
+      "support": 3000.0
     },
     "weighted avg": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 2400.0
+      "support": 3000.0
     }
   }
 }

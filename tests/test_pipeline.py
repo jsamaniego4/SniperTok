@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import os
 import sys
 
 import pandas as pd
@@ -16,6 +17,13 @@ from tools.generate_sample_data import generate_dataset
 
 def test_end_to_end_pipeline(tmp_path):
     csv_path = tmp_path / "sample.csv"
+    artifact_dir = tmp_path / "artifacts"
+    artifact_dir.mkdir(parents=True, exist_ok=True)
+
+    os.environ["SNIPER_TOK_DATABASE_PATH"] = str(artifact_dir / "sniper_tok.db")
+    os.environ["SNIPER_TOK_MODEL_PATH"] = str(artifact_dir / "category_model.joblib")
+    os.environ["SNIPER_TOK_METADATA_PATH"] = str(artifact_dir / "model_metrics.json")
+
     df = generate_dataset(rows=500, seed=7)
     df.to_csv(csv_path, index=False)
 

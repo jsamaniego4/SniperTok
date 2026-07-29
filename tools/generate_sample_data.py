@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import argparse
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import random
 
@@ -69,7 +69,7 @@ def generate_dataset(rows: int, seed: int = 42) -> pd.DataFrame:
     random.seed(seed)
     np.random.seed(seed)
 
-    base_time = datetime.utcnow() - timedelta(days=30)
+    base_time = datetime.now(timezone.utc) - timedelta(days=30)
     records = []
 
     creator_pool = [f"creator_{i:04d}" for i in range(800)]
